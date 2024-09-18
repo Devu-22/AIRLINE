@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #EDF5E1; margin: 0; padding: 0; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #05386B; }
+        form { margin: 20px 0; }
+        label { display: block; margin-bottom: 8px; color: #05386B; } /* Changed to blue */
+        input { padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%; color: #05386B; } /* Changed to blue */
+        button { padding: 10px 15px; background-color: #5CDB95; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #8EE4AF; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Registration</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

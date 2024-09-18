@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight List</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #EDF5E1; margin: 0; padding: 0; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #05386B; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 12px; text-align: left; }
+        th { background-color: #05386B; color: #ffffff; }
+        td a { color: #5CDB95; text-decoration: none; }
+        td a:hover { text-decoration: underline; }
+        .button-container { margin-top: 20px; }
+        .btn { display: inline-block; padding: 10px 15px; color: white; text-decoration: none; border-radius: 5px; }
+        .btn-back { background-color: #05386B; }
+        .btn-back:hover { background-color: #032F5D; }
+        .btn-logout { background-color: #FF6F61; }
+        .btn-logout:hover { background-color: #FF3B30; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Flight List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight ID</th>
+                    <th>Departure Airport</th>
+                    <th>Arrival Airport</th>
+                    <th>Departure Date</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Date</th>
+                    <th>Arrival Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.flight_id }}</td>
+                    <td>{{ flight.dep_airport }}</td>
+                    <td>{{ flight.arr_airport }}</td>
+                    <td>{{ flight.dep_date }}</td>
+                    <td>{{ flight.dep_time }}</td>
+                    <td>{{ flight.arr_date }}</td>
+                    <td>{{ flight.arr_time }}</td>
+                    <td>
+                        <a href="{% url 'edit_flight' flight.flight_id %}" style="color: #05386B">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button-container">
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-back">Back to Dashboard</a>
+            <a href="{% url 'admin_logout' %}" class="btn btn-logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

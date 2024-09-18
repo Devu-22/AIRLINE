@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EDF5E1;
+            margin: 0;
+            padding: 0;
+            color: #05386B; /* Text color set to dark blue */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #05386B; /* Heading color set to dark blue */
+        }
+        form {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #05386B; /* Label color set to dark blue */
+        }
+        input, select, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            background-color: #5CDB95;
+            color: #05386B; /* Button text color set to dark blue */
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8EE4AF;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #05386B; /* Button text color set to dark blue */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-back {
+            background-color: #5CDB95;
+        }
+        .btn-back:hover {
+            background-color: #8EE4AF;
+        }
+        .btn-logout {
+            background-color: #FF6F61;
+        }
+        .btn-logout:hover {
+            background-color: #FF3B30;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Flight</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Flight</button>
+        </form>
+        <div class="button-container">
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-back">Back to Dashboard</a>
+            <a href="{% url 'admin_logout' %}" class="btn btn-logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

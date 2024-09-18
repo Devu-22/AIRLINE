@@ -1,0 +1,40 @@
+<!-- flight_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; }
+        .flight-details { margin: 20px 0; }
+        h1 { margin-bottom: 20px; }
+        .flight-details ul { list-style: none; padding: 0; }
+        .flight-details li { margin-bottom: 10px; }
+        .back-btn { display: inline-block; padding: 10px 15px; background-color: #5CDB95; color: white; text-decoration: none; }
+        .back-btn:hover { background-color: #8EE4AF; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Details</h1>
+        {% if flight %}
+            <div class="flight-details">
+                <ul>
+                    <li><strong>Flight ID:</strong> {{ flight.flight_id }}</li>
+                    <li><strong>Departure Airport:</strong> {{ flight.dep_airport }}</li>
+                    <li><strong>Departure Date:</strong> {{ flight.dep_date }}</li>
+                    <li><strong>Departure Time:</strong> {{ flight.dep_time }}</li>
+                    <li><strong>Arrival Airport:</strong> {{ flight.arr_airport }}</li>
+                    <li><strong>Arrival Date:</strong> {{ flight.arr_date }}</li>
+                    <li><strong>Arrival Time:</strong> {{ flight.arr_time }}</li>
+                </ul>
+            </div>
+        {% else %}
+            <p>No flight details to display.</p>
+        {% endif %}
+        <a href="{% url 'flight_search' %}" class="back-btn">Back to Search</a>
+    </div>
+</body>
+</html>

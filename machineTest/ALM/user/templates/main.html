@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FlyWithMe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        h1 {
+            color: #05386B;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #5CDB95;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        a:hover {
+            background-color: #379683;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to FlyWithMe Airline</h1>
+        <p>Your trusted airline for convenient and safe flights. We provide seamless travel experiences to various destinations around the world.</p>
+        <p>Explore flight schedules, book tickets, and manage your flights effortlessly with FlyWithMe.</p>
+
+        <p>If you're an admin, please register or login to manage flight details:</p>
+<!--        <a href="{% url 'admin_register' %}">Register as Admin</a>-->
+        <a href="{% url 'admin_login' %}">Login as Admin</a>
+    </div>
+</body>
+</html>
